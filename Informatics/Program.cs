@@ -3,12 +3,11 @@ namespace Informatics
 {
     class Program
     {
-        static int N;
         static void Main(string[] args)
         {
             Console.WriteLine("ИКБО-10-18. Грачев Александр. Вариант 8.\n\r" +
                 "\n\rВведите размер стороны матрицы (целое число из диапозона [2; 5]).");
-
+            int N;
             while (!(int.TryParse(Console.ReadLine(), out N)&&N>1 &&N<6))
                 Console.WriteLine("Введено некорректное число! Введите целое число из диапозона [2; 5].");
             int[,] arr = new int[N, N];
@@ -42,6 +41,7 @@ namespace Informatics
         }
         private static void sortMx(int[,] arr)
         {
+            int N = (int)Math.Sqrt(arr.Length);
             int a = N, l = 0;
             while (a != 0)
                 l += a--;
@@ -75,7 +75,8 @@ namespace Informatics
         }
         private static void mulMx(int[,] arr)
         {
-            for(int x = 1; x<N; x++)
+            int N = (int)Math.Sqrt(arr.Length);
+            for (int x = 1; x<N; x++)
             {
                 for (int y = 1; y <= x; y++)
                     arr[x, N - y] = -arr[x, N - y];
@@ -83,6 +84,7 @@ namespace Informatics
         }
         private static void showMatrix(int[,] arr)
         {
+            int N = (int)Math.Sqrt(arr.Length);
             for (int x = 0; x < N; x++)
             {
                 for (int y = 0; y < N; y++)
@@ -94,6 +96,7 @@ namespace Informatics
         }
         private static void userFill(int[,] arr)
         {
+            int N = (int)Math.Sqrt(arr.Length);
             for (int x = 1; x <= N; x++)
                 for (int y = 1; y <= N; y++)
                 {
@@ -115,6 +118,7 @@ namespace Informatics
         }
         private static void randFill(int[,] arr)
         {
+            int N = (int)Math.Sqrt(arr.Length);
             Random r = new Random();
             for(int x=0; x<N; x++)
                 for (int y = 0; y < N; y++)
